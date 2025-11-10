@@ -1,0 +1,42 @@
+import java.io.*;
+
+class Basic {
+    public static void main(String[] args) {
+        // Source and destination file names
+        String inputFile = "input.txt";
+        String outputFile = "output.txt";
+
+        try {
+            // Step 1: Create and write some text to the input file
+            FileWriter fw = new FileWriter(inputFile);
+            fw.write("This is a sample input file.\n");
+            fw.write("It contains multiple lines of text.\n");
+            fw.write("This text will be copied to the output file.");
+            fw.close();
+
+            // Step 2: Create reader and writer objects
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile));
+
+            String line;
+
+            // Step 3: Read each line from input file and write to output file
+            while ((line = reader.readLine()) != null) {
+                writer.write(line);
+                writer.newLine(); // move to next line
+            }
+
+            // Step 4: Close both streams
+            reader.close();
+            writer.close();
+
+            System.out.println("✅ File copied successfully from " + inputFile + " to " + outputFile);
+        } 
+        catch (FileNotFoundException e) {
+            System.out.println("❌ Error: File not found. Please check the input file name.");
+        } 
+        catch (IOException e) {
+            System.out.println("❌ Error: An I/O exception occurred.");
+        }
+    }
+}
