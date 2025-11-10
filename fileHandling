@@ -30,13 +30,13 @@ class Basic {
             reader.close();
             writer.close();
 
-            System.out.println("✅ File copied successfully from " + inputFile + " to " + outputFile);
+            System.out.println(" File copied successfully from " + inputFile + " to " + outputFile);
         } 
         catch (FileNotFoundException e) {
-            System.out.println("❌ Error: File not found. Please check the input file name.");
+            System.out.println(" Error: File not found. Please check the input file name.");
         } 
         catch (IOException e) {
-            System.out.println("❌ Error: An I/O exception occurred.");
+            System.out.println(" Error: An I/O exception occurred.");
         }
     }
 }
